@@ -19,17 +19,24 @@
             </div>
 
             <div class="form__item">
-                {{> field-password action="signupForm.change" label="Пароль" type="password" name="password"
+                {{> field-password action="signupForm.change" label="Пароль" name="password"
                 placeholder="Введіть пароль"}}
-                <span name="email" class="form__error">Помилка</span>
+                <span name="password" class="form__error">Помилка</span>
+            </div>
+
+            <div class="form__item">
+                {{> field-select action="signupForm.change" label="Роль"
+                name="role" placeholder="Оберіть роль" list = data.role}}
+                <span name="role" class="form__error">Помилка</span>
             </div>
 
             <div class="form__item">
                 {{> field-checkbox action="signupForm.change" label="Ви погоджуєтесь з правилами сервіса"
-                type="password" name="isConfirm"
-                placeholder="Ваш пароль"}}
+                name="isConfirm"}}
                 <span name="isConfirm" class="form__error">Помилка</span>
             </div>
+
+
         </div>
 
         <button onclick="signupForm.submit()" class="button" type="button">Зареєструватися</button>
