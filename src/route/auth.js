@@ -3,38 +3,47 @@ const express = require("express");
 // Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router();
 
+const { User } = require("../class/user");
+
 // ================================================================
 
 // router.get Створює нам один ентпоїнт
 
 // ↙️ тут вводимо шлях (PATH) до сторінки
-router.get("/", function (req, res) {
+router.get("/signup", function (req, res) {
   // res.render генерує нам HTML сторінку
 
   // ↙️ cюди вводимо назву файлу з сontainer
-  res.render("index", {
+  res.render("signup", {
     // вказуємо назву контейнера
-    name: "index",
+    name: "signup",
     // вказуємо назву компонентів
-    component: [],
+    component: ["back-button", "field", "field-password"],
 
     // вказуємо назву сторінки
-    title: "Home Page",
+    title: "Signup Page",
     // ... сюди можна далі продовжувати додавати потрібні технічні дані, які будуть використовуватися в layout
 
     // вказуємо дані,
-    data: {},
+    data: {
+      role: [
+        {
+          value: User.USER_ROLE.USER,
+          text: "Користувач",
+        },
+        {
+          value: User.USER_ROLE.ADMIN,
+          text: "Адміністратор",
+        },
+        {
+          value: User.USER_ROLE.DEVELOPER,
+          text: "Розробник",
+        },
+      ],
+    },
   });
   // ↑↑ сюди вводимо JSON дані
 });
 
-// Підключаємо файли роутів
-const auth = require("./auth");
-
-// Підключаємо інші файли роутів, якщо є
-
-//Об"єднайте файли роутів за потреби
-router.use("/", auth);
-
-// Експортуємо глобальний роутер
+// Підключаємо роутер до бек-енду
 module.exports = router;
