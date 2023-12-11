@@ -1,9 +1,8 @@
-// @use '../../style' as ks;
 @use '../../style' as s;
 @use '../field/index.scss' as field;
 
 .field--password {
-	.field--wrapper {
+	.field__wrapper {
 		width: 100%;
 		display: grid;
 

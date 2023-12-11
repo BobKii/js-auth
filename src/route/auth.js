@@ -21,8 +21,8 @@ router.get("/signup", function (req, res) {
     component: [
       "back-button",
       "field",
-      "field-password",
       "field-checkbox",
+      "field-password",
       "field-select",
     ],
 

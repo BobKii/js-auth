@@ -1,6 +1,6 @@
 class FieldPassword {
   static toggle = (target) => {
-    target.toggleAtribute("show");
+    target.toggleAttribute("show");
 
     const input = target.previousElementSibling;
 
