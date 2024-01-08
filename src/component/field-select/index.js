@@ -27,7 +27,11 @@ class FieldSelect {
 
     if (active) active.toggleAttribute("active");
 
+    // ===
+
     target.toggleAttribute("active");
+
+    // ===
 
     const value = parent.querySelector(".field__value");
 

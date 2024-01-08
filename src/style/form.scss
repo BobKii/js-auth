@@ -1,4 +1,4 @@
-@use './index.scss' as s;
+@use './index' as s;
 
 .form {
   display: flex;
@@ -19,7 +19,7 @@
     &--active {
       display: block;
     }
-  } 
+  }
 }
 
 .button {
@@ -32,6 +32,17 @@
 
   &:active {
     opacity: 0.3;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: default;
+
+    &:hover,
+    &:active {
+      opacity: 0.5;
+      cursor: default;
+    }
   }
 }
 
@@ -54,5 +65,39 @@
   &--progress {
     border-color: s.color(blue);
     color: s.color(blue);
+  }
+
+  &--disabled {
+    display: none;
+  }
+}
+
+.validation {
+  &--active {
+    border-color: s.color(red) !important;
+  }
+}
+
+.link {
+  color: s.color(main);
+
+  @include s.click;
+}
+
+.link__prefix {
+  color: s.color(light);
+}
+
+.skeleton {
+  animation: skeleton-animation 1s infinite alternate;
+}
+
+@keyframes skeleton-animation {
+  from {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.15);
   }
 }
